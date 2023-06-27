@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./live-search.css">
+    <title>Live Search Functionality</title>
+</head>
+<body>
+
+    <header>
+        <ion-icon name="videocam"></ion-icon>
+       <h1>Search Movies</h1>
+    </header>
+
+    <main>
+        <div id="search-container">
+            <ion-icon name="search-outline"></ion-icon>
+            <input type="search" id="search-bar" placeholder="Search movies...">
+        </div>
+
+        <p id="txt">OOPS! <br/><br/> Movie not available</p>
+      
+        <div id="results-container"> </div>
+    </main>
+
+
+    <script src="./live-search.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

@@ -1,0 +1,123 @@
+html{
+    scroll-behavior: smooth;
+    background-color: #111;
+    color: whitesmoke;
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    padding: 25px;
+    letter-spacing: 2px;
+    position: sticky;
+    top: 0%;
+    z-index: 2;
+    border-bottom: 2px solid ;
+    background-color: black;
+    text-shadow: 3px 3px 5px #fd1d6b;   
+    box-shadow: 10px 10px 20px -10px #fd1d6b; 
+}
+
+header > h1{
+    color: white;
+}
+
+header > ion-icon{
+    color:#fd1d6b;
+    font-size: 65px;
+    position: absolute;
+    left: 15px;
+}
+
+main{
+   padding: 30px;
+   display: grid;
+   justify-content: center;
+}
+
+#search-container{
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: sticky;
+    top: 100px;
+}
+
+#search-bar{
+    border: none;
+    width: 60%;
+    padding: 15px;
+    padding-left: 40px;
+    border-radius: 15px;
+    font-size: medium;
+}
+
+#results-container{
+    border-right: 5px solid #fd1d6b;
+    border-left: 5px solid #fd1d6b;     
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 90vw;
+    color: wheat;
+
+}
+
+#txt{
+    text-align: center;
+    letter-spacing: 2px;
+    display: none;
+    margin-top: 15%;
+    font-size: 25px;
+    text-shadow: 3px 3px 5px #fd1d6b;
+}
+
+.movie-cards{
+    padding: 25px;
+    max-width: 250px;
+    /* max-height: 425px; */
+    border-radius: 15px;
+    display: grid;
+    place-items: center;
+    box-shadow: 1px 1px 20px -1px #fd1d6b ; 
+    overflow: hidden;
+    margin: 50px;
+    color: white;
+}
+ion-icon{
+    color: gray;
+    position: relative;
+    left: 30px;
+    top: 13px;
+    z-index: 3;
+    font-size: 19px;
+}
+
+.title{
+    margin: 20px auto;
+    text-align: center;
+    font-size: 1.2rem;
+    text-shadow: 3px 3px 5px #fd1d6b;  
+}
+
+.date{
+    margin-top: 15px;
+    font-size: 0.8rem;
+    text-shadow: 3px 3px 5px #fd1d6b;  
+}
+
+.movie-image{
+    width: 90%;
+    max-width: 400px;
+    object-fit: contain;
+    border-radius: 5px;
+}
