@@ -24,7 +24,6 @@ const fetchMovies = async()=>{
 		const response = await fetch(url, options);
 		const data = await response.json(); 
 		movieList = data;
-		console.log(movieList)
 
 		for (let i = 0; i < movieList.length; i++){
 			resultsContainer.innerHTML+= ` <div class="movie-cards"> <img src="${movieList[i].image[0][1]}" alt="movie image" class="movie-image" />  <h2 class="title"> ${movieList[i].title}  </h2> <p class="plot"> ${movieList[i].description} </p> <p class="date"> ${movieList[i].year} </p> </div>`
