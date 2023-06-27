@@ -33,7 +33,7 @@ const fetchMovies = async()=>{
 		console.error(error);
 		}
 }
-//fetchMovies()
+fetchMovies()
 
 
 searchBar.addEventListener('input', function(e){	
