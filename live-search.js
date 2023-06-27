@@ -14,7 +14,7 @@ const movieImage= document.querySelector("movie-image");
 const moviePlot= document.querySelector(".plot");
 const movieDate= document.querySelector(".date");
 const resultsContainer = document.getElementById("results-container");
-const txt = document.getElementById("txt");
+const movieUnavailableTxt = document.getElementById("movie-unavailable-txt");
 let movieList;
 let searchValue;
 let arr;
@@ -37,7 +37,7 @@ fetchMovies()
 
 searchBar.addEventListener('input', function(e){	
 	resultsContainer.innerHTML = "";
-	txt.style.display="none";
+	movieUnavailableTxt.style.display="none";
 	searchValue = e.target.value.trim().toLowerCase();
 	arr = [];
 
@@ -51,6 +51,6 @@ searchBar.addEventListener('input', function(e){
 		});
 
 	if(arr.length <= 0)
-	 	txt.style.display="block";
+	 	movieUnavailableTxt.style.display="block";
 
 })

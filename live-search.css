@@ -31,9 +31,9 @@ header > h1{
 
 header > ion-icon{
     color:#fd1d6b;
-    font-size: 65px;
+    font-size: 60px;
     position: absolute;
-    left: 15px;
+    left: 5%;
 }
 
 main{
@@ -57,7 +57,7 @@ main{
     padding: 15px;
     padding-left: 40px;
     border-radius: 15px;
-    font-size: medium;
+    font-size: 15px;
 }
 
 #results-container{
@@ -72,12 +72,11 @@ main{
 
 }
 
-#txt{
+#movie-unavailable-txt{
     text-align: center;
     letter-spacing: 2px;
     display: none;
     margin-top: 15%;
-    font-size: 25px;
     text-shadow: 3px 3px 5px #fd1d6b;
 }
 
@@ -121,3 +120,31 @@ ion-icon{
     object-fit: contain;
     border-radius: 5px;
 }
+
+@media only screen and (max-width: 767px) {
+    .plot{
+        font-size: 0.8rem;
+    }
+   
+    #search-bar{
+        font-size: 10px;
+    }
+    header > ion-icon{
+        color:#fd1d6b;
+        font-size: 40px;
+        top: 20px
+    }
+    header > h1{
+        font-size: 25px;
+    }
+    .title{
+        font-size: 1rem;
+        
+    }
+    ion-icon{
+        font-size: 10px;
+        top: 15px;
+    }
+    
+  }
+  
