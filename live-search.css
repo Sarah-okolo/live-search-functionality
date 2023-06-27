@@ -127,7 +127,7 @@ ion-icon{
     }
    
     #search-bar{
-        font-size: 10px;
+        width: 80%;
     }
     header > ion-icon{
         color:#fd1d6b;
@@ -140,10 +140,6 @@ ion-icon{
     .title{
         font-size: 1rem;
         
-    }
-    ion-icon{
-        font-size: 10px;
-        top: 15px;
     }
     
   }
