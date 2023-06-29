@@ -25,10 +25,6 @@ header{
     box-shadow: 10px 10px 20px -10px #fd1d6b; 
 }
 
-header > h1{
-    color: white;
-}
-
 header > ion-icon{
     color:#fd1d6b;
     font-size: 60px;
@@ -60,6 +56,15 @@ main{
     font-size: 15px;
 }
 
+#search-container>ion-icon{
+    color: gray;
+    position: relative;
+    left: 30px;
+    top: 13px;
+    z-index: 3;
+    font-size: 19px;
+}
+
 #results-container{
     border-right: 5px solid #fd1d6b;
     border-left: 5px solid #fd1d6b;     
@@ -68,7 +73,6 @@ main{
     justify-content: center;
     flex-wrap: wrap;
     width: 90vw;
-    color: wheat;
 
 }
 
@@ -83,22 +87,11 @@ main{
 .movie-cards{
     padding: 25px;
     max-width: 250px;
-    /* max-height: 425px; */
     border-radius: 15px;
     display: grid;
     place-items: center;
-    box-shadow: 1px 1px 20px -1px #fd1d6b ; 
-    overflow: hidden;
+    box-shadow: 1px 1px 20px -1px #fd1d6b ;
     margin: 50px;
-    color: white;
-}
-ion-icon{
-    color: gray;
-    position: relative;
-    left: 30px;
-    top: 13px;
-    z-index: 3;
-    font-size: 19px;
 }
 
 .title{
@@ -121,11 +114,12 @@ ion-icon{
     border-radius: 5px;
 }
 
+
+
 @media only screen and (max-width: 767px) {
     .plot{
         font-size: 0.8rem;
     }
-   
     #search-bar{
         width: 90%;
     }
@@ -138,8 +132,7 @@ ion-icon{
         font-size: 25px;
     }
     .title{
-        font-size: 1rem;
-        
+        font-size: 1rem;      
     }
     
   }
