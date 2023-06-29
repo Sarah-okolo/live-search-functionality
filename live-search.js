@@ -103,5 +103,5 @@ const searchBarFunc = (e) => {
 }
 
 // Event listener for search bar input, with debouncing, and delay of 300 milliseconds.
-searchBar.addEventListener("input", debounce(searchBarFunc, 900) );
+searchBar.addEventListener("input", debounce(searchBarFunc, 200) );
  
