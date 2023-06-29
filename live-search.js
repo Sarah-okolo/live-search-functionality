@@ -13,7 +13,7 @@ const resultsContainer = document.getElementById("results-container");
 const movieUnavailableTxt = document.getElementById("movie-unavailable-txt");
 let movieList;
 let searchValue;
-let searchedMovies;
+let moviesReturnedOnSearch;
 
 // Function to fetch movies from the API
 const fetchMovies = async () => {
@@ -21,23 +21,25 @@ const fetchMovies = async () => {
     const response = await fetch(url, options);
     movieList = await response.json();
 
-    // Step 1: Storing the Movie Data in browser storage
+    // Storing the Movie Data in browser storage
     localStorage.setItem("moviedata", JSON.stringify(movieList));
     localStorage.setItem("cacheTimestamp", Date.now()); // Update cache timestamp
 
-    // Step 3: Render the movies on the page
+    // Render the movies on the page
     renderMovies(movieList);
+
   } catch (error) {
     movieUnavailableTxt.style.display = "block";
 	console.error(error);
   }
 };
 
+
 // Function to render movies on the page
 const renderMovies = (movies) => {
   resultsContainer.innerHTML = ""; // Clear the existing movies
   movieUnavailableTxt.style.display = "none"; // Hide the "No movies found" message
-  searchedMovies = []; // Clear the searched movies array
+  moviesReturnedOnSearch = []; // Clear the searched movies array
 
   movies.forEach((movie) => {
     resultsContainer.innerHTML += `
@@ -49,15 +51,14 @@ const renderMovies = (movies) => {
       </div>
     `;
 
-    searchedMovies.push(movie); // Add the movie to the searched movies array
+    moviesReturnedOnSearch.push(movie); // Add the movies that are a result to the search input value
   });
-
- 
 };
+
 
 // Step 2: Check if there is cached movie data and if it has expired
 const cacheTimestamp = localStorage.getItem("cacheTimestamp");
-const expirationDuration = 6 * 60 * 60 * 1000; // 6 hours in milliseconds
+const expirationDuration = 21600000; // 6 hours in milliseconds
 
 // Check if cache has expired or data is not available
 if (
@@ -73,6 +74,7 @@ if (
 }
   
 
+// Function for the search bar event listener
 const searchBarFunc = (e) => {
 	searchValue = e.target.value.trim().toLowerCase();
 
@@ -84,7 +86,7 @@ const searchBarFunc = (e) => {
     // Render the filtered movies on the page
     renderMovies(filteredMovies);
 
-	if (searchedMovies.length <= 0) {
+	if (moviesReturnedOnSearch.length <= 0) {
 		movieUnavailableTxt.style.display = "block"; // Show the "No movies found" message if no movies match the search
 	  }
 }
