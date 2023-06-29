@@ -71,19 +71,6 @@ if (
   movieList = JSON.parse(localStorage.getItem("moviedata"));
   renderMovies(movieList);
 }
-
-// Debounce function to delay search functionality
-const debounce = (func, delay) => {
-	let timeoutId; // Variable to hold the timeout ID
-  
-	return function (...args) {
-	  clearTimeout(timeoutId); // Clear any previous timeout
-  
-	  timeoutId = setTimeout(() => {
-		func.apply(this, args); // Invoke the provided function after the specified delay
-	  }, delay);
-	};
-  };
   
 
 const searchBarFunc = (e) => {
@@ -102,6 +89,6 @@ const searchBarFunc = (e) => {
 	  }
 }
 
-// Event listener for search bar input, with debouncing, and delay of 300 milliseconds.
-searchBar.addEventListener("input", debounce(searchBarFunc, 200) );
+// Event listener for search bar input
+searchBar.addEventListener("input", searchBarFunc);
  
