@@ -29,7 +29,8 @@ const fetchMovies = async () => {
     renderMovies(movieList);
 
   } catch (error) {
-    movieUnavailableTxt.style.display = "block";
+    movieUnavailableTxt.innerHTML = 'An error occurred while fetching movies. <br /> Please try again later.';
+	movieUnavailableTxt.style.display = "block";
 	console.error(error);
   }
 };
@@ -39,7 +40,7 @@ const fetchMovies = async () => {
 const renderMovies = (movies) => {
   resultsContainer.innerHTML = ""; // Clear the existing movies
   movieUnavailableTxt.style.display = "none"; // Hide the "No movies found" message
-  moviesReturnedOnSearch = []; // Clear the searched movies array
+  moviesReturnedOnSearch = []; // Clear the movies returned on search array
 
   movies.forEach((movie) => {
     resultsContainer.innerHTML += `
@@ -74,14 +75,12 @@ if (
 }
   
 
-// Function for the search bar event listener
-const searchBarFunc = (e) => {
-	searchValue = e.target.value.trim().toLowerCase();
+// Event listener and handler for search bar input
+searchBar.addEventListener("input", (event) => {
+	searchValue = event.target.value.trim().toLowerCase();
 
     // Filter movies based on search input
-    const filteredMovies = movieList.filter((movie) =>
-      movie.title.toLowerCase().includes(searchValue)
-    );
+    const filteredMovies = movieList.filter( (movie) => movie.title.toLowerCase().includes(searchValue) );
 
     // Render the filtered movies on the page
     renderMovies(filteredMovies);
@@ -89,8 +88,5 @@ const searchBarFunc = (e) => {
 	if (moviesReturnedOnSearch.length <= 0) {
 		movieUnavailableTxt.style.display = "block"; // Show the "No movies found" message if no movies match the search
 	  }
-}
-
-// Event listener for search bar input
-searchBar.addEventListener("input", searchBarFunc);
+});
  
