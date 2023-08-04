@@ -86,6 +86,7 @@ searchBar.addEventListener("input", (event) => {
     renderMovies(filteredMovies);
 
 	if (moviesReturnedOnSearch.length <= 0) {
+		movieUnavailableTxt.innerHTML = "OOPS! <br/><br/> Movie not available";
 		movieUnavailableTxt.style.display = "block"; // Show the "No movies found" message if no movies match the search
 	  }
 });
