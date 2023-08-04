@@ -1,9 +1,9 @@
-const url = 'https://imdb-top-100-movies.p.rapidapi.com/';
+const url = 'https://imdb-top-100-movies1.p.rapidapi.com/';
 const options = {
 	method: 'GET',
 	headers: {
 		'X-RapidAPI-Key': 'b1e588b3cbmsh3fc752416246cd4p1f6184jsn6ab41aed29d5',
-		'X-RapidAPI-Host': 'imdb-top-100-movies.p.rapidapi.com'
+		'X-RapidAPI-Host': 'imdb-top-100-movies1.p.rapidapi.com'
 	}
 };
 
@@ -45,7 +45,7 @@ const renderMovies = (movies) => {
   movies.forEach((movie) => {
     resultsContainer.innerHTML += `
       <div class="movie-cards">
-        <img src="${movie.image}" alt="movie image" class="movie-image" />
+        <img src="${movie.thumbnail}" alt="movie image" class="movie-image" />
         <h2 class="title">${movie.title}</h2>
         <p class="plot">${movie.description}</p>
         <p class="date">${movie.year}</p>
