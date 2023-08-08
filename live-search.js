@@ -1,16 +1,16 @@
-const url = 'https://imdb-top-100-movies1.p.rapidapi.com/';
+const url = 'https://netflix54.p.rapidapi.com/search/?query=stranger&offset=0&limit_titles=50&limit_suggestions=20&lang=en';
 const options = {
 	method: 'GET',
 	headers: {
 		'X-RapidAPI-Key': 'b1e588b3cbmsh3fc752416246cd4p1f6184jsn6ab41aed29d5',
-		'X-RapidAPI-Host': 'imdb-top-100-movies1.p.rapidapi.com'
+		'X-RapidAPI-Host': 'netflix54.p.rapidapi.com'
 	}
 };
-
 
 const searchBar = document.getElementById("search-bar");
 const resultsContainer = document.getElementById("results-container");
 const movieUnavailableTxt = document.getElementById("movie-unavailable-txt");
+let results;
 let movieList;
 let searchValue;
 let moviesReturnedOnSearch;
@@ -19,7 +19,8 @@ let moviesReturnedOnSearch;
 const fetchMovies = async () => {
   try {
     const response = await fetch(url, options);
-    movieList = await response.json();
+    results = await response.json();
+    movieList = results.titles
 
     // Storing the Movie Data in browser storage
     localStorage.setItem("moviedata", JSON.stringify(movieList));
@@ -45,10 +46,10 @@ const renderMovies = (movies) => {
   movies.forEach((movie) => {
     resultsContainer.innerHTML += `
       <div class="movie-cards">
-        <img src="${movie.thumbnail}" alt="movie image" class="movie-image" />
-        <h2 class="title">${movie.title}</h2>
-        <p class="plot">${movie.description}</p>
-        <p class="date">${movie.year}</p>
+        <img src="${movie.jawSummary.backgroundImage.url}" alt="movie image" class="movie-image" />
+        <h2 class="title">${movie.jawSummary.title}</h2>
+        <p class="plot">${movie.jawSummary.synopsis}</p>
+        <p class="date">${movie.jawSummary.releaseYear}</p>
       </div>
     `;
 
@@ -80,7 +81,7 @@ searchBar.addEventListener("input", (event) => {
 	searchValue = event.target.value.trim().toLowerCase();
 
     // Filter movies based on search input
-    const filteredMovies = movieList.filter( (movie) => movie.title.toLowerCase().includes(searchValue) );
+    const filteredMovies = movieList.filter( (movie) => movie.jawSummary.title.toLowerCase().includes(searchValue) );
 
     // Render the filtered movies on the page
     renderMovies(filteredMovies);
